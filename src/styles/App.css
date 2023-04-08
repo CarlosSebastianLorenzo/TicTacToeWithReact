@@ -1,0 +1,85 @@
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(2em, 8vw, 3em);
+  gap: .5em;
+  min-height: 88vh;
+}
+.board .game{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 3px solid #ccc;
+  border-right: 3px solid #ccc;
+  box-shadow: 5px 5px 15px 3px #22222260;
+}
+.square{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  border-top: 3px solid #ccc;
+  border-left: 3px solid #ccc;
+}
+.square:hover{
+  background-color: #33333340;
+  cursor: pointer;
+}
+.turn{
+  display: none;
+}
+.selected{
+  display: block;
+}
+.winner{
+  color: orange;
+  animation: 1s champion ease-in-out infinite alternate;
+}
+@keyframes champion {
+  from{
+    translate: 0 0;
+  }
+  50%{
+    translate: 0 -.2em;
+    font-size: 1.2em;
+  }
+  to { translate: 0 0;
+    scale: 1.4;
+  }
+}
+.spin>*{
+  color: orange;
+  animation: 1s spin ease-in-out infinite;
+}
+@keyframes spin {
+  from{
+    rotate: 0;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.reset{
+  background: linear-gradient(45deg, blue , orange , blue);
+  background-size: 200%;
+  border-radius: 25px;
+  padding: .3em;
+  color: #cacaca;
+  font-size: .8em;
+  cursor: pointer;
+  background-position: right ;
+  transition: background-position .3s linear;
+  border: none;
+  box-shadow: 5px 5px 10px #23232340;
+}
+.reset:hover{
+  background-position: left ;
+  transform:rotateY(5deg) rotateX(5deg);
+  color: #fafafa
+}
+footer{
+  height: 12vh;
+}
